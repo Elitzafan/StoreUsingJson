@@ -7,9 +7,9 @@ using Windows.Storage;
 
 namespace StoreUsingJson
 {
-    public class Storage<T> : IStorage<T> where T : class, new()
+    public class Storage<T> /*: IStorage<T>*/ where T : class, new()
     {
-        private JsonSerializer _serializer;
+        private readonly JsonSerializer _serializer;
         private StorageFolder _localFolder;
         public Storage()
         {
@@ -17,11 +17,10 @@ namespace StoreUsingJson
             _serializer = new JsonSerializer();
             _serializer.Context = new StreamingContext(StreamingContextStates.File);
             _serializer.DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate;
-            _serializer.ObjectCreationHandling = ObjectCreationHandling.Replace;
-            _serializer.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            _serializer.TypeNameHandling = TypeNameHandling.All;
-            
         }
+
+        public StorageFolder Folder => _localFolder;
+
         public async Task<T> Load(string fileName)
         {
             StorageFile file = await _localFolder.GetFileAsync($"{fileName}.txt");
