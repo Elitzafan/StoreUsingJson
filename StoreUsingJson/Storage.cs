@@ -18,6 +18,9 @@ namespace StoreUsingJson
             _serializer.Context = new StreamingContext(StreamingContextStates.File);
             _serializer.DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate;
             _serializer.ObjectCreationHandling = ObjectCreationHandling.Replace;
+            _serializer.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            _serializer.TypeNameHandling = TypeNameHandling.All;
+            
         }
         public async Task<T> Load(string fileName)
         {

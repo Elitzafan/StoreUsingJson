@@ -7,7 +7,7 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="fe2df9c3-0298-4b8d-a4ae-2d4c97da024f"
+    Name="StoreUsingJson"
     Publisher="CN=Elitzafan"
     Version="1.0.0.0" />
 
