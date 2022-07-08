@@ -9,31 +9,21 @@ using Windows.UI.Xaml.Shapes;
 
 namespace StoreUsingJson
 {
+    /// <summary>
+    /// Represents a <see cref="Person"/> instance which has a different properties.
+    /// </summary>
     public class Person
     {
-        Random _random = new Random();
+        private readonly Random _random = new Random();
         public Person()
         {
-            Ellipse = new Ellipse 
-            {
-                Name = "Yaakov", 
-                Stroke = new SolidColorBrush(Colors.AliceBlue) 
-            };
             Name = "Avraham";
             Id = 0;
             Age = 175;
             Point = new Point { X = 15.25, Y = 88.77 };
-            Details = new Dictionary<string, string>
-            {
-                { "Name", Ellipse.Name },
-                // #FFF0F8FF
-                // You can set it again to 'Ellipse' when loading
-                { "EllipseStroke", Colors.AliceBlue.ToString() }
-            };
             MyIntArr = GetIntArray();
             PathToImage = "MY_PATH_TO_IMAGE";
             Lives = 1000;
-            EllipseStroke = Details["EllipseStroke"];
         }
 
         private int[] GetIntArray()
